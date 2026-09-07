@@ -125,7 +125,6 @@ class AndroidSpeechProvider(private val context: Context) : SpeechProvider {
                     SpeechRecognizer.ERROR_SPEECH_TIMEOUT -> "No speech detected. Please tap the microphone and speak."
                     SpeechRecognizer.ERROR_AUDIO -> "Microphone error. Please check your device microphone."
                     SpeechRecognizer.ERROR_NETWORK -> "Network error during speech recognition."
-                    SpeechRecognizer.ERROR_NOT_SUPPORTED -> "Speech recognition is not supported for this language."
                     else -> "Speech recognition failed. Please try again."
                 }
                 onError(message)
@@ -136,7 +135,6 @@ class AndroidSpeechProvider(private val context: Context) : SpeechProvider {
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
             putExtra(RecognizerIntent.EXTRA_LANGUAGE, languageCode)
             putExtra(RecognizerIntent.EXTRA_LANGUAGE_PREFERENCE, languageCode)
-            putExtra(RecognizerIntent.EXTRA_ONLY_RETURN_LANGUAGE_RESULTS, false)
             putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1)
             putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, false)
         }

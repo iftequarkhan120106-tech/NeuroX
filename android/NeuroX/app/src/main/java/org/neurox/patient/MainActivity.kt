@@ -31,7 +31,10 @@ import java.util.UUID
 import java.io.IOException
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) = super.onCreate(savedInstanceState) { setContent { NeuroXApp() } }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent { NeuroXApp() }
+    }
 }
 
 private val Blue = Color(0xFF265FC5)
@@ -73,7 +76,7 @@ fun NeuroXApp() {
         if (!granted) syncState = SyncState.Error
     }
 
-    val speechProvider = remember { buildSpeechProvider(context, demoMode = BuildConfig.DEBUG) }
+    val speechProvider = remember { buildSpeechProvider(context, demoMode = true) }
 
     // Resolve language config from the patient's preferred language.
     val languageCode = remember(preferredLanguage) { languageNameToCode(preferredLanguage) }
