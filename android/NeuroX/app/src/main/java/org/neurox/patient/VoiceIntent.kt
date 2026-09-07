@@ -125,6 +125,6 @@ object IntentParser {
         }
         is VoiceIntent.ListReminders  -> "Showing today's reminders…"
         is VoiceIntent.RequestHelp    -> "Opening Safety — I Need Help…"
-        is VoiceIntent.Unknown        -> "I heard: "${intent.transcript}" — tap an option below."
+        is VoiceIntent.Unknown        -> "I heard: '${intent.transcript}' — tap an option below."
     }
 }
